@@ -1,4 +1,4 @@
-module github.com/furdarius/rabbitroutine
+module github.com/winlin/rabbitroutine
 
 go 1.15
 
