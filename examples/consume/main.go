@@ -8,8 +8,8 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/furdarius/rabbitroutine"
 	"github.com/pkg/errors"
+	"github.com/winlin/rabbitroutine"
 	"golang.org/x/sync/errgroup"
 )
 

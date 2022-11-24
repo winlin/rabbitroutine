@@ -6,8 +6,8 @@ import (
 	"log"
 	"time"
 
-	"github.com/furdarius/rabbitroutine"
 	amqp "github.com/rabbitmq/amqp091-go"
+	"github.com/winlin/rabbitroutine"
 )
 
 func main() {

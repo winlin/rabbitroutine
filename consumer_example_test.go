@@ -9,8 +9,8 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/furdarius/rabbitroutine"
 	amqp "github.com/rabbitmq/amqp091-go"
+	"github.com/winlin/rabbitroutine"
 )
 
 // Consumer implement rabbitroutine.Consumer interface.
