@@ -2,6 +2,7 @@ package rabbitroutine
 
 import (
 	"context"
+	"fmt"
 	"math"
 	"sync"
 	"time"
@@ -129,6 +130,11 @@ func (c *Connector) StartMultipleConsumers(ctx context.Context, consumer Consume
 			// In this case consuming must be finished and then goroutine will finish their work.
 
 			g.Go(func() error {
+				defer func() {
+					if r := recover(); r != nil {
+						fmt.Println("rabbitroutine consumer.Consume() #1 ", r)
+					}
+				}()
 				// On consume exit send stop signal to all consumer's goroutines.
 				defer cancel()
 
@@ -140,6 +146,11 @@ func (c *Connector) StartMultipleConsumers(ctx context.Context, consumer Consume
 
 				var closeErr error
 				once.Do(func() {
+					defer func() {
+						if r := recover(); r != nil {
+							fmt.Println("rabbitroutine closeErr = consumeChannel.Close() #2", r)
+						}
+					}()
 					closeErr = consumeChannel.Close()
 				})
 
@@ -151,6 +162,11 @@ func (c *Connector) StartMultipleConsumers(ctx context.Context, consumer Consume
 			})
 
 			g.Go(func() error {
+				defer func() {
+					if r := recover(); r != nil {
+						fmt.Println("rabbitroutine wait cancel or error #3", r)
+					}
+				}()
 				// On amqp error send stop signal to all consumer's goroutines.
 				defer cancel()
 
@@ -167,6 +183,11 @@ func (c *Connector) StartMultipleConsumers(ctx context.Context, consumer Consume
 
 				var closeErr error
 				once.Do(func() {
+					defer func() {
+						if r := recover(); r != nil {
+							fmt.Println("rabbitroutine closeErr = consumeChannel.Close() #4", r)
+						}
+					}()
 					closeErr = consumeChannel.Close()
 				})
 
