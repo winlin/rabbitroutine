@@ -1,6 +1,6 @@
 package rabbitroutine
 
-import amqp "github.com/rabbitmq/amqp091-go"
+import amqp "github.com/winlin/amqp091-go"
 
 // Retried is fired when connection retrying occurs.
 // The event will be emitted only if the connection was not established.

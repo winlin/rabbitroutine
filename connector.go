@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/pkg/errors"
-	amqp "github.com/rabbitmq/amqp091-go"
+	amqp "github.com/winlin/amqp091-go"
 	"golang.org/x/sync/errgroup"
 )
 

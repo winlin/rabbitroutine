@@ -6,8 +6,8 @@ import (
 	"time"
 
 	"github.com/pkg/errors"
-	amqp "github.com/rabbitmq/amqp091-go"
 	"github.com/stretchr/testify/assert"
+	amqp "github.com/winlin/amqp091-go"
 )
 
 func TestContextDoneIsCorrectAndNotBlocking(t *testing.T) {
